@@ -20,7 +20,7 @@ export function CheckoutPage({ cart = [] }) {
             .then((response) => {
                 setPaymentSummary(response.data);
             })    
-    }, []);
+    });
 
     return (
         <>
