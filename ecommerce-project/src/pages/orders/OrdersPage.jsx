@@ -1,5 +1,6 @@
 import { useEffect, useState, Fragment } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router';
 import { Header } from '../../components/Header';
 import { OrderHeader } from './OrderHeader';
 import { OrderDetails } from './OrderDetails';
@@ -21,6 +22,7 @@ export function OrdersPage({ cart }) {
     return (
         <>
             <title>Orders</title>
+            <link rel="icon" type="image/svg+xml" href="orders-favicon.png" />
 
             <Header cart={cart} />
 

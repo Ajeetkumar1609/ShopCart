@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { CheckoutHeader } from './CheckoutHeader';
 import { OrderSummary } from './OrderSummary';
 import { PaymentSummary } from './PaymentSummary';
-import './checkout-header.css';
+import './checkoutHeader.css';
 import './CheckoutPage.css';
 
 
@@ -27,6 +27,7 @@ export function CheckoutPage({ cart, loadCart }) {
     return (
         <>
             <title>Checkout</title>
+            <link rel="icon" type="image/svg+xml" href="cart-favicon.png" />
 
             <CheckoutHeader />
 
