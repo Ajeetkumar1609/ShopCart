@@ -38,6 +38,11 @@
   border: 1px solid white;
 }
 
+.header h3 {
+  font-size: 20px;
+  color: white;
+}
+
 .header .orders-link.active {
   text-decoration: underline;
 }
