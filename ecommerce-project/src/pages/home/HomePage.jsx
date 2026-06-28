@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Header } from '../../components/Header';
 import { ProductsGrid } from './ProductsGrid';
 import './HomePage.css';
+import { API_URL } from '../../api';
 
 export function HomePage({ cart, loadCart }) {
     const [products, setProducts] = useState([]);
@@ -13,12 +14,11 @@ export function HomePage({ cart, loadCart }) {
 
     useEffect(() => {
         const getHomeData = async () => {
-            //     const response = await axios.get('/api/products')
-            //     setProducts(response.data);
-            // }
+            const url = search
+                ? `${API_URL}/api/products?search=${search}`
+                : `${API_URL}/api/products`;
 
-            const urlPath = search ? `/api/products?search=${search}` : '/api/products';
-            const response = await axios.get(urlPath);
+            const response = await axios.get(url);
 
             setProducts(response.data);
         }

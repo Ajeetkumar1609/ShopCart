@@ -5,13 +5,14 @@ import { Header } from '../../components/Header';
 import { OrderHeader } from './OrderHeader';
 import { OrderDetails } from './OrderDetails';
 import './OrdersPage.css';
+import { API_URL } from '../../api';
 
 export function OrdersPage({ cart, loadCart }) {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
         const fetchOrdersData = async () => {
-            const response = await axios.get('/api/orders?expand=products')
+            const response = await axios.get(`${API_URL}/api/orders?expand=products`);
             setOrders(response.data);
         }
         

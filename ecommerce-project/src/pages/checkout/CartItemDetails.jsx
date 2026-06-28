@@ -2,20 +2,21 @@ import axios from 'axios';
 import { useState } from 'react';
 import { formatMoney } from '../../utils/money';
 import dayjs from 'dayjs';
+import { API_URL } from '../../api';
 
 export function CartItemDetails({ cartItem, loadCart }) {
     const [isUpdatingQuantity, setIsUpdatingQuantity] = useState(false);
     const [quantity, setQuantity] = useState(cartItem.quantity);
 
     const deleteCartItem = async () => {
-        await axios.delete(`/api/cart-items/${cartItem.productId}`);
+        await axios.delete(`${API_URL}/api/cart-items/${cartItem.productId}`);
 
         await loadCart();
     }
 
     const updateQuantity = async () => {
         if (isUpdatingQuantity) {
-            await axios.put(`/api/cart-items/${cartItem.productId}`, {
+            await axios.put(`${API_URL}/api/cart-items/${cartItem.productId}`, {
                 quantity: Number(quantity),
             });
             await loadCart();
@@ -42,7 +43,7 @@ export function CartItemDetails({ cartItem, loadCart }) {
     return (
         <>
             <img className="product-image"
-                src={cartItem.product.image} />
+                src={`${API_URL}/${cartItem.product.image}`} />
 
             <div className="cart-item-details">
                 <div className="product-name">

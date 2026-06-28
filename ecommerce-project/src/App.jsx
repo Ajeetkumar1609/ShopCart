@@ -7,6 +7,7 @@ import { OrdersPage } from './pages/orders/OrdersPage';
 import { TrackingPage } from './pages/tracking/TrackingPage'
 import './App.css'
 import { NotFoundPage } from './pages/NotFoundPage';
+import { API_URL } from './api';
 
 window.axios = axios;
 
@@ -14,7 +15,7 @@ function App() {
   const [cart, setCart] = useState([]);
 
   const loadCart = async () => {
-      const response = await axios.get('http://localhost:3000/api/cart-items?expand=product')
+      const response = await axios.get(`${API_URL}/api/cart-items?expand=product`);
       setCart(response.data);
     }
 

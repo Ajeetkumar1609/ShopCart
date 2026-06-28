@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router";
 import { Fragment } from "react";
 import BuyAgainIcon from '../../assets/images/icons/buy-again.png';
+import { API_URL } from "../../api";
 
 export function OrderDetails({order, loadCart}) {
    
@@ -11,7 +12,7 @@ export function OrderDetails({order, loadCart}) {
             {order.products.map((orderProduct) => {
 
                 const addToCart = async() => {
-                    await axios.post('/api/cart-items', {
+                    await axios.post(`${API_URL}/api/cart-items`, {
                     productId: orderProduct.product.id,
                     quantity: 1
                     });
@@ -22,7 +23,7 @@ export function OrderDetails({order, loadCart}) {
                 return (
                     <Fragment key={orderProduct.productId}>
                         <div className="product-image-container">
-                            <img src={orderProduct.product.image} />
+                            <img src={`${API_URL}/${orderProduct.product.image}`} />
                         </div>
 
                         <div className="product-details">

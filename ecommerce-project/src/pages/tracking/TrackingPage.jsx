@@ -5,6 +5,8 @@ import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { Header } from '../../components/Header';
 import './TrackingPage.css';
+import { API_URL } from '../../api';
+
 
 export function TrackingPage({ cart }) {
     const {orderId, productId} = useParams();
@@ -13,7 +15,7 @@ export function TrackingPage({ cart }) {
 
     useEffect(() => {
         const fetchTrackingData = async() => {
-            const response = await axios.get(`/api/orders/${orderId}?expand=products`);
+            const response = await axios.get(`${API_URL}/api/orders/${orderId}?expand=products`);
             setOrder(response.data);
         };
 
@@ -66,7 +68,7 @@ export function TrackingPage({ cart }) {
                         Quantity: {orderProduct.quantity}
                     </div>
 
-                    <img className="product-image" src={orderProduct.product.image} />
+                    <img className="product-image" src={`${API_URL}/${orderProduct.product.image}`} />
 
                     <div className="progress-labels-container">
                         <div className={`progress-label ${isPreparing && 'current-status'}`}>
