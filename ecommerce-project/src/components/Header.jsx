@@ -6,7 +6,6 @@ import LogoWhite from '../assets/images/logo-white.png';
 import MobileLogoWhite from '../assets/images/mobile-logo-white.png';
 import './Header.css';
 
-
 export function Header({ cart=[] }) {
     const  navigate = useNavigate();
     // const [search, setSearch] = useState('');
